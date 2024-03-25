@@ -1,4 +1,5 @@
 const getState = ({ getStore, getActions, setStore }) => {
+	//Arquitectura que ayuda a cambiar los datos {store, actions}
 	return {
 		store: {
 			demo: [
@@ -12,7 +13,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			info: "Info desde el store",
+			pokemons: {} //Creamos datos y los podemos dejar inicializados
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,6 +40,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			getPokemons: () => {
+				fetch("")
+				.then((response)=>(response.json))
+				.then((data)=>{setStore({pokemons: data})})
+				.catch((err))
 			}
 		}
 	};

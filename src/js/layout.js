@@ -9,6 +9,11 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import Card from "./component/Card";
+import NewContactForm from "./NewContactForm";
+import EditContactForm from "./EditContactForm";
+//Este es el archivo donde se manejan las RUTAS
+
 
 //create your first component
 const Layout = () => {
@@ -25,9 +30,11 @@ const Layout = () => {
 						<Route path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/single/:theid" element={<Single />} />
+						<Route path='/tarjeta/' element={<Card/>}/>
+						<Route path='/newContactForm/' element={<NewContactForm/>}/>
 						<Route path="*" element={<h1>Not found!</h1>} />
+						<Route path="/contact/:contactId" element={<EditContactForm/>} />
 					</Routes>
-					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>
